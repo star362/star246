@@ -2,6 +2,7 @@ package com.auth.sunia.star247.auth.server.bean.vertype;
 
 import com.auth.sunia.star247.auth.server.bean.auth.enums.V1Enum;
 import com.auth.sunia.star247.auth.server.bean.auth.verauth.AbstractAuthIntV1;
+import org.apache.skywalking.apm.toolkit.trace.Trace;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -22,6 +23,7 @@ public class VerTypeV1 implements VerTypeInterface{
     Map<String, AbstractAuthIntV1> v1Map;
 
 
+    @Trace(operationName="accept()")//operationName 名称,不写则用默
     @Override
     public void accept() {
 
