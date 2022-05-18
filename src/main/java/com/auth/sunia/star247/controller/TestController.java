@@ -1,5 +1,6 @@
 package com.auth.sunia.star247.controller;
 
+import com.alicp.jetcache.anno.CreateCache;
 import com.auth.sunia.star247.auth.server.bean.auth.enums.VerTypeEnum;
 import com.auth.sunia.star247.auth.server.bean.vertype.VerTypeInterface;
 import org.slf4j.Logger;

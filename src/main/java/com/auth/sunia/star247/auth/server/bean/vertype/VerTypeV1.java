@@ -1,5 +1,6 @@
 package com.auth.sunia.star247.auth.server.bean.vertype;
 
+import com.alicp.jetcache.anno.CreateCache;
 import com.auth.sunia.star247.auth.server.bean.auth.enums.V1Enum;
 import com.auth.sunia.star247.auth.server.bean.auth.verauth.AbstractAuthIntV1;
 import org.springframework.beans.factory.annotation.Autowired;

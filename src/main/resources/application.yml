@@ -1,0 +1,31 @@
+# 应用名称
+spring:
+  application:
+    name: star247
+# 应用服务 WEB 访问端口
+server:
+  port: 8080
+
+
+#logging.config=classpath:logback-boot.xml
+
+jetcache:
+  statIntervalMinutes: 15
+  areaInCacheName: false
+  local:
+    default:
+      type: caffeine
+      keyConvertor: fastjson
+  remote:
+    default:
+      type: redis
+      keyConvertor: fastjson
+      valueEncoder: kryo
+      valueDecoder: kryo
+      poolConfig:
+        minIdle: 5
+        maxIdle: 20
+        maxTotal: 50
+      host: 192.168.1.110
+      port: 6379
+      password: root
