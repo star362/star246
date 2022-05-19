@@ -1,6 +1,5 @@
 package com.auth.sunia.star247.service;
 
-import com.alicp.jetcache.anno.CreateCache;
 
 /**
  * @version 1.0
@@ -15,7 +14,7 @@ public interface ICacheService {
      *
      * @return
      */
-    String fingCache();
+    String fingCache(String id);
 
 
 }

@@ -15,10 +15,18 @@ jetcache:
   local:
     default:
       type: caffeine
+      limit: 100
       keyConvertor: fastjson
+#      写入过期时间的全局配置，以毫秒为单位。
+      expireAfterWriteInMillis: 100000
+    otherArea:
+      type: linkedhashmap
+      limit: 100
+      keyConvertor: none
+      expireAfterWriteInMillis: 100000
   remote:
     default:
-      type: redis
+      type: redis.lettuce
       keyConvertor: fastjson
       valueEncoder: kryo
       valueDecoder: kryo
@@ -26,6 +34,5 @@ jetcache:
         minIdle: 5
         maxIdle: 20
         maxTotal: 50
-      host: 192.168.1.110
-      port: 6379
-      password: root
+      uri:
+        - redis://root@192.168.1.110:6379/4  #redis://密码@IP:端口/库

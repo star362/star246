@@ -18,8 +18,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Star247Application implements ApplicationRunner {
 
 
-    @CreateCache(name = "UserService.userCache", expire = 1000, cacheType = CacheType.REMOTE, localLimit = 50)
-    private Cache<Long, String> userCache2;
+
 
 
     public static void main(String[] args) {
@@ -29,10 +28,6 @@ public class Star247Application implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        String user = userCache2.get(123L);
-        log.info("=======get==user======[{}]",user);
-//        userCache2.put(123L, "cachetest");
-//        user = userCache2.get(123L);
-//        log.info("=======put==user======[{}]",user);
+
     }
 }
