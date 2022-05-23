@@ -36,3 +36,16 @@ jetcache:
         maxTotal: 50
       uri:
         - redis://root@192.168.1.110:6379/4  #redis://密码@IP:端口/库
+    otherArea:
+      type: redis
+      keyConvertor: fastjson
+      valueEncoder: kryo
+      valueDecoder: kryo
+      poolConfig:
+        minIdle: 5
+        maxIdle: 20
+        maxTotal: 50
+      host: 192.168.1.110
+      port: 6379
+      password: root
+      database: 5

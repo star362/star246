@@ -1,5 +1,6 @@
 package com.auth.sunia.star247;
 
+import cn.hutool.extra.spring.SpringUtil;
 import com.alicp.jetcache.Cache;
 import com.alicp.jetcache.anno.CacheType;
 import com.alicp.jetcache.anno.CreateCache;
@@ -10,6 +11,8 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.stream.Stream;
 
 @EnableMethodCache(basePackages = "com.auth.sunia.star247")
 @EnableCreateCacheAnnotation
@@ -28,6 +31,11 @@ public class Star247Application implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
+       Stream.of(SpringUtil.getApplicationContext().getBeanDefinitionNames()).forEach(a->{
+           log.info("beanName:【{}】\n className:[{}]", a,SpringUtil.getBean(a).getClass().getName());
+       });
+
+
 
     }
 }
