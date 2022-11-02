@@ -14,13 +14,11 @@ public enum VerTypeEnum {
     /**
      * V1 版本
      */
-    v1("v1","verTypeV1", VerTypeV1.class),
+    v1("v1", "verTypeV1", VerTypeV1.class),
     /**
      * v2 版本
      */
-    v2("v2","verTypeV2", VerTypeV2.class)
-
-    ;
+    v2("v2", "verTypeV2", VerTypeV2.class);
 
 
     private String verNum;

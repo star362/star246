@@ -1,5 +1,7 @@
 package com.auth.sunia.star247;
 
+import cn.hutool.core.util.EscapeUtil;
+import cn.hutool.core.util.ReferenceUtil;
 import com.alicp.jetcache.Cache;
 import com.alicp.jetcache.CacheGetResult;
 import com.alicp.jetcache.anno.CachePenetrationProtect;
@@ -51,9 +53,8 @@ class Star247ApplicationTests {
     }
 
 
-
     @Test
-    void testcache3(){
+    void testcache3() {
 //        CacheGetResult<String> user2 = userCache2.GET(123L);
 //        if (user2.isSuccess()) {
 //            log.info("=======get==user2.getValue()======[{}]", user2.getValue());
@@ -61,6 +62,15 @@ class Star247ApplicationTests {
     }
 
     public static void main(String[] args) {
+        String s = "00000000-0004-cd64-ffff-ffffa912c6c7";
+        System.out.println(EscapeUtil.escape(s));
+        System.out.println(EscapeUtil.unescape(s));
+        int i = s.hashCode() % 3;
+        System.out.println(i);
+
+
+        ReferenceUtil.create(ReferenceUtil.ReferenceType.SOFT, 1);
+
 
     }
 

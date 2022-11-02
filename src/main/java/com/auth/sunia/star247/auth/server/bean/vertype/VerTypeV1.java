@@ -16,14 +16,14 @@ import java.util.Map;
  * @see V1Enum
  */
 @Component
-public class VerTypeV1 implements VerTypeInterface{
+public class VerTypeV1 implements VerTypeInterface {
 
 
     @Autowired
     Map<String, AbstractAuthIntV1> v1Map;
 
 
-    @Trace(operationName="accept()")//operationName 名称,不写则用默
+    @Trace(operationName = "accept()")//operationName 名称,不写则用默
     @Override
     public void accept() {
 

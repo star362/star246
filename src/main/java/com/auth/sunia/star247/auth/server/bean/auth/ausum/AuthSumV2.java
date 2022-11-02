@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * @describe: <br>
  */
 @Component
-public class AuthSumV2 extends AbstractAuthIntV2 implements AuthSum  {
+public class AuthSumV2 extends AbstractAuthIntV2 implements AuthSum {
     @Override
     public void apple() {
         System.out.println("AuthSumV2:::apple");

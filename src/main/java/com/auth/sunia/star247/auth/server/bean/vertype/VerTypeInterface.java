@@ -8,5 +8,5 @@ package com.auth.sunia.star247.auth.server.bean.vertype;
  */
 @FunctionalInterface
 public interface VerTypeInterface {
-   void accept();
+    void accept();
 }

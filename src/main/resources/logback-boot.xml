@@ -44,7 +44,8 @@
         </filter>
     </appender>
 
-    <appender name="skywalking-log" class="org.apache.skywalking.apm.toolkit.log.logback.v1.x.log.GRPCLogClientAppender">
+    <appender name="skywalking-log"
+              class="org.apache.skywalking.apm.toolkit.log.logback.v1.x.log.GRPCLogClientAppender">
         <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
             <layout class="org.apache.skywalking.apm.toolkit.log.logback.v1.x.TraceIdPatternLogbackLayout">
                 <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level logger_name:%logger{36} - [%tid] - message:%msg%n</pattern>
@@ -55,9 +56,9 @@
 
     <!-- Enable FILE and STDOUT appenders for all log messages. By default, only log at level INFO and above. -->
     <root level="INFO">
-        <appender-ref ref="FILE" />
-        <appender-ref ref="STDOUT" />
-<!--        <appender-ref ref="skywalking-log" />-->
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="STDOUT"/>
+        <!--        <appender-ref ref="skywalking-log" />-->
     </root>
 
 </configuration>

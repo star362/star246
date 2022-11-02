@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class AuthBrandV1 extends AbstractAuthIntV1 implements AuthBrand {
 
-    @Trace(operationName="apple()")//operationName 名称,不写则用默
+    @Trace(operationName = "apple()")//operationName 名称,不写则用默
     @Override
     public void apple() {
         System.out.println("AuthBrandV1:::apple");

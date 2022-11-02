@@ -21,7 +21,7 @@ import org.springframework.stereotype.Service;
 public class CacheServiceImpl implements ICacheService {
 
 
-    @Cached(name = ":message", key = "#id", expire = 20000, cacheType = CacheType.BOTH, localLimit = 50)
+    @Cached(name = "CacheServiceImpl:message", key = "#id", expire = 20000, cacheType = CacheType.BOTH, localLimit = 50)
     @CacheRefresh(refresh = 10, stopRefreshAfterLastAccess = 1800)
 //    @CachePenetrationProtect //并发保护
     @Override
