@@ -40,8 +40,8 @@ class TestControllerTest {
         car.setId(1L);
         car.setName("name");
         car.setColor("yello");
-//         CarEntityVO carEntityVO = carConverter.carToCarDto(car);
-        CarEntityVO carEntityVO = CarConverter.instances.carToCarDto(car);
+         CarEntityVO carEntityVO = carConverter.carToCarDto(car);
+//        CarEntityVO carEntityVO = CarConverter.instances.carToCarDto(car);
         log.info("{}", carEntityVO);
     }
 

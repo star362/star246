@@ -87,8 +87,8 @@ public class TestController {
 
     }
 
-//    @Autowired
-//    CarConverter carConverter;
+    @Autowired
+    CarConverter carConverter;
 
     @GetMapping("e")
     public CarEntityVO e() {
@@ -97,8 +97,8 @@ public class TestController {
         car.setId(1L);
         car.setName("name");
         car.setColor("yello");
-//         CarEntityVO carEntityVO = carConverter.carToCarDto(car);
-        CarEntityVO carEntityVO = CarConverter.instances.carToCarDto(car);
+         CarEntityVO carEntityVO = carConverter.carToCarDto(car);
+//        CarEntityVO carEntityVO = CarConverter.instances.carToCarDto(car);
 
         return carEntityVO;
 

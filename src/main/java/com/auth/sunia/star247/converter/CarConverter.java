@@ -25,11 +25,10 @@ public interface CarConverter {
     CarConverter instances = Mappers.getMapper(CarConverter.class);
 
 
-    @Mappings({
-            @Mapping(source = "id", target = "id2"),
-            // 使用ignore
-            @Mapping(target = "id", ignore = true)
-    })
-
+//    @Mappings({
+//            @Mapping(source = "id", target = "id2"),
+//            // 使用ignore
+//            @Mapping(target = "id", ignore = true)
+//    })
     CarEntityVO carToCarDto(CarEntity car);
 }
