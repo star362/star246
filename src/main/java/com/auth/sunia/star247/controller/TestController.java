@@ -1,20 +1,21 @@
 package com.auth.sunia.star247.controller;
 
 import com.alicp.jetcache.Cache;
-import com.alicp.jetcache.anno.*;
+import com.alicp.jetcache.anno.CacheType;
+import com.alicp.jetcache.anno.CreateCache;
 import com.auth.sunia.star247.auth.server.bean.auth.enums.VerTypeEnum;
 import com.auth.sunia.star247.auth.server.bean.vertype.VerTypeInterface;
+import com.auth.sunia.star247.converter.CarConverter;
+import com.auth.sunia.star247.entity.CarEntity;
+import com.auth.sunia.star247.entity.VO.CarEntityVO;
 import com.auth.sunia.star247.service.ICacheService;
-import org.apache.skywalking.apm.toolkit.trace.Trace;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @version 1.0
@@ -23,6 +24,7 @@ import java.util.concurrent.TimeUnit;
  * @describe: <br>
  */
 @RestController
+@Slf4j
 public class TestController {
 
     /*
@@ -32,14 +34,13 @@ public class TestController {
     *
     */
 
-    private static final Logger log = LoggerFactory.getLogger(TestController.class);
 
     @Autowired
     Map<String, VerTypeInterface> verTypeInterfaceMap;
 
 
     @GetMapping("aaa")
-    public String licenseCommitV2(@RequestParam(name = "aaa")String aaa){
+    public String licenseCommitV2(@RequestParam(name = "aaa") String aaa) {
         log.error("=======================");
         //TODO 获取版本号
         verTypeInterfaceMap.get(VerTypeEnum.v2.getBeanName()).accept();
@@ -51,8 +52,7 @@ public class TestController {
     }
 
 
-
-    @CreateCache(name = "UserService.userCache-", expire = 10000, cacheType = CacheType.BOTH, localLimit = 50)
+    @CreateCache(name = "UserService:userCache:", expire = 10000, cacheType = CacheType.BOTH, localLimit = 50)
     private Cache<Long, Long> userCache2;
 
     @Autowired
@@ -66,7 +66,7 @@ public class TestController {
 
 
     @GetMapping("b")
-    public Long cache2test(){
+    public Long cache2test() {
 
         return userCache2.get(123L);
 
@@ -74,16 +74,35 @@ public class TestController {
 
 
     @GetMapping("c")
-    public void cache2testc(){
+    public void cache2testc() {
 
-         userCache2.put(123L,789L);
+        userCache2.put(123L, 789L);
 
     }
 
     @GetMapping("d")
-    public void cache2testd(){
+    public void cache2testd() {
 
-        userCache2.put(123L,999L);
+        userCache2.put(123L, 999L);
 
     }
+
+    @Autowired
+    CarConverter carConverter;
+
+    @GetMapping("e")
+    public CarEntityVO e() {
+
+        final CarEntity car = new CarEntity();
+        car.setId(1L);
+        car.setName("name");
+        car.setColor("yello");
+         CarEntityVO carEntityVO = carConverter.carToCarDto(car);
+//        CarEntityVO carEntityVO = CarConverter.instances.carToCarDto(car);
+
+        return carEntityVO;
+
+    }
+
+
 }

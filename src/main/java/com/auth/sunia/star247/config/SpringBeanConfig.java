@@ -9,6 +9,6 @@ import org.springframework.context.annotation.Import;
  * @date: 2022/5/23 10:16
  * @describe: <br>
  */
-@Import(SpringUtil.class)
+//@Import(SpringUtil.class)
 public class SpringBeanConfig {
 }

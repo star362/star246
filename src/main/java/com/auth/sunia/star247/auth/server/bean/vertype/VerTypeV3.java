@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  * @describe: <br>
  */
 @Component
-public class VerTypeV3  implements VerTypeInterface{
+public class VerTypeV3 implements VerTypeInterface {
     @Override
     public void accept() {
 

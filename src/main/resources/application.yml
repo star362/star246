@@ -17,7 +17,7 @@ jetcache:
       type: caffeine
       limit: 100
       keyConvertor: fastjson
-#      写入过期时间的全局配置，以毫秒为单位。
+      #      写入过期时间的全局配置，以毫秒为单位。
       expireAfterWriteInMillis: 100000
     otherArea:
       type: linkedhashmap

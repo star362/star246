@@ -11,14 +11,13 @@ import com.auth.sunia.star247.auth.server.bean.auth.brand.AuthBrandV1;
  */
 public enum V1Enum {
     /**
-     *数量授权
+     * 数量授权
      */
     AuthSum("authSumV1", AuthSumV1.class),
     /**
      * 品牌授权
      */
-    AuthBrand("authBrandV1", AuthBrandV1.class)
-    ;
+    AuthBrand("authBrandV1", AuthBrandV1.class);
 
     private String beanName;
     private Class beanClazz;

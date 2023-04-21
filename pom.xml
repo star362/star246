@@ -13,7 +13,7 @@
         <skywalking.version>8.6.0</skywalking.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <spring-boot.version>2.3.7.RELEASE</spring-boot.version>
+        <spring-boot.version>2.6.6</spring-boot.version>
     </properties>
 
     <dependencies>
@@ -24,7 +24,7 @@
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
-            <version>5.6.0</version>
+            <version>5.8.8</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -54,6 +54,20 @@
             <artifactId>jetcache-starter-redis</artifactId>
             <version>2.6.4</version>
         </dependency>
+
+<!--        实体转换-->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>1.4.2.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <version>1.4.2.Final</version>
+            <scope>provided</scope>
+        </dependency>
+
 
 
 <!--        <dependency>-->
@@ -113,6 +127,24 @@
                     <source>1.8</source>
                     <target>1.8</target>
                     <encoding>UTF-8</encoding>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>1.18.22</version>
+                        </path>
+                        <!-- Using Lombok 1.18.16 and above requires below -->
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok-mapstruct-binding</artifactId>
+                            <version>0.2.0</version>
+                        </path>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>1.4.2.Final</version>
+                        </path>
+                    </annotationProcessorPaths>
                 </configuration>
             </plugin>
             <plugin>
