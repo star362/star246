@@ -6,12 +6,26 @@ import com.auth.sunia.star247.pojo.Student;
 import com.auth.sunia.star247.pojo.Teacher;
 import org.springframework.beans.BeanUtils;
 
+import javax.xml.ws.Holder;
+import java.util.stream.Stream;
+
 public class Demo {
 
 
     public static void main(String[] args) {
+//        extracted();
+
+        for (int j=0;j<9999;j++){
+            System.out.println(j);
+        }
+
+
+    }
+
+    private static void extracted() {
         Student student = new Student("学生1", 22, "男");
         Teacher teacher = new Teacher("老师 1", "女", ListUtil.of(student));
+
 
         Teacher teacher1 = new Teacher();
         BeanUtil.copyProperties(teacher,teacher1);
@@ -24,7 +38,6 @@ public class Demo {
         System.out.println(teacher);
         System.out.println(teacher1);
         System.out.println("==========================");
-
     }
 
 
