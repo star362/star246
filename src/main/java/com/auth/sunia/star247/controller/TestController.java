@@ -1,13 +1,11 @@
 package com.auth.sunia.star247.controller;
 
-import com.alicp.jetcache.Cache;
-import com.alicp.jetcache.anno.CacheType;
-import com.alicp.jetcache.anno.CreateCache;
 import com.auth.sunia.star247.auth.server.bean.auth.enums.VerTypeEnum;
 import com.auth.sunia.star247.auth.server.bean.vertype.VerTypeInterface;
 import com.auth.sunia.star247.converter.CarConverter;
 import com.auth.sunia.star247.entity.CarEntity;
 import com.auth.sunia.star247.entity.VO.CarEntityVO;
+import com.auth.sunia.star247.logs.annotation.LogCat;
 import com.auth.sunia.star247.service.ICacheService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +38,7 @@ public class TestController {
 
 
     @GetMapping("aaa")
+    @LogCat
     public String licenseCommitV2(@RequestParam(name = "aaa") String aaa) {
         log.error("=======================");
         //TODO 获取版本号
@@ -52,8 +51,8 @@ public class TestController {
     }
 
 
-    @CreateCache(name = "UserService:userCache:", expire = 10000, cacheType = CacheType.BOTH, localLimit = 50)
-    private Cache<Long, Long> userCache2;
+//    @CreateCache(name = "UserService:userCache:", expire = 10000, cacheType = CacheType.BOTH, localLimit = 50)
+//    private Cache<Long, Long> userCache2;
 
     @Autowired
     ICacheService cacheService;
@@ -65,27 +64,9 @@ public class TestController {
     }
 
 
-    @GetMapping("b")
-    public Long cache2test() {
-
-        return userCache2.get(123L);
-
-    }
 
 
-    @GetMapping("c")
-    public void cache2testc() {
 
-        userCache2.put(123L, 789L);
-
-    }
-
-    @GetMapping("d")
-    public void cache2testd() {
-
-        userCache2.put(123L, 999L);
-
-    }
 
     @Autowired
     CarConverter carConverter;
